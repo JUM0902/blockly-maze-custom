@@ -136,3 +136,7 @@ html[dir="RTL"] #pegmanButton>span {
   width: 49px;
   background-position: -980px 0;
 }
+/* 画面上部のヘッダー部分を非表示にする */
+body > table:first-child {
+  display: none; /* 要素を表示しないようにする */
+}
