@@ -159,6 +159,21 @@ BlocklyCode.congratulations = function() {
   ok.addEventListener('click', BlocklyInterface.nextLevel, true);
   ok.addEventListener('touchend', BlocklyInterface.nextLevel, true);
 
+  // **ここから追記するコード**
+  const buttonDiv = BlocklyGames.getElementById('dialogDoneButtons');
+  if (buttonDiv) { // dialogDoneButtons 要素が存在するか確認
+    const buttons = buttonDiv.getElementsByTagName('button');
+    for (let i = 0; i < buttons.length; i++) {
+      // IDが 'doneOk' でないボタンを探す（これがキャンセルボタンと仮定）
+      if (buttons[i].id !== 'doneOk') {
+        buttons[i].textContent = 'OK'; // ボタンの表示テキストを 'OK' に変更
+        // 必要であれば、ボタンに付与されているイベントリスナー（通常、ダイアログを閉じる処理）はそのままにする
+        break; // キャンセルボタンが見つかったらループを終了
+      }
+    }
+  }
+  // **ここまで追記するコード**
+
   BlocklyDialogs.showDialog(content, null, false, true, style,
       function() {
         document.body.removeEventListener('keydown',

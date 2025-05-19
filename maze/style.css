@@ -140,3 +140,8 @@ html[dir="RTL"] #pegmanButton>span {
 body > table:first-child {
   display: none; /* 要素を表示しないようにする */
 }
+/* レベルクリア後の確認メッセージとOKボタンを非表示にする (キャンセルボタンは残す) */
+#dialogDoneText, /* 「レベル n に進みますか？」のテキスト部分 */
+#doneOk { /* 「OK」ボタン */
+  display: none; /* 要素を表示しないようにする */
+}
